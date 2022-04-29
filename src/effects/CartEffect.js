@@ -48,6 +48,5 @@ export const useCartEffect = (shopId) => {
         let shopName = cartList[shopId]?.shopName || ''
         return shopName
     })
-
     return { changeCartItemInfo, cartList, calculations, productList, shopName }
 }

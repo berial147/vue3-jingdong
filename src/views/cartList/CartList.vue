@@ -3,7 +3,8 @@
     <div class="title">我的购物车</div>
     <div class="shops">
       <div class="empty" v-if="Object.keys(cartListWithProducts).length === 0">
-        购物车当前为空
+        <div class="empty-icon iconfont">&#xe723;</div>
+        <div class="empty-text">购物车当前为空</div>
       </div>
       <div
         class="shop"
@@ -17,7 +18,10 @@
         <div class="products">
           <div class="products-list">
             <template v-for="product in item.productList" :key="product._id">
-              <div v-if="product.count > 0" class="products-item">
+              <div
+                v-if="product.count > 0 && product.checked"
+                class="products-item"
+              >
                 <img class="products-item-img" :src="product.imgUrl" />
                 <div class="products-item-detail">
                   <h4 class="products-item-title">
@@ -46,55 +50,53 @@
 </template>
 
 <script>
-import { computed } from 'vue'
-import { useStore } from 'vuex'
-import FooterTapBar from '../../components/FooterTapBar.vue'
-import { useRouter } from 'vue-router';
+import { computed } from "vue";
+import { useStore } from "vuex";
+import FooterTapBar from "../../components/FooterTapBar.vue";
+import { useRouter } from "vue-router";
 
 //购物车列表逻辑
 const useCartEffect = () => {
-  const store = useStore()
+  const store = useStore();
   const cartList = store.state.cartList;
 
   const cartListWithProducts = computed(() => {
     const newCartList = {};
     for (let shopId in cartList) {
-      let total = 0
-      const products = cartList[shopId].productList
+      let total = 0;
+      const products = cartList[shopId].productList;
       for (let productId in products) {
-        const product = products[productId]
-        total += (product.count || 0)
+        const product = products[productId];
+        total += product.count || 0;
       }
       if (total > 0) {
-        newCartList[shopId] = cartList[shopId]
+        newCartList[shopId] = cartList[shopId];
       }
     }
     return newCartList;
-  })
+  });
 
-  return { cartListWithProducts }
-}
+  return { cartListWithProducts };
+};
 
 //处理去结算逻辑
 const useGoToPayEffect = () => {
-  const router = useRouter()
+  const router = useRouter();
   const handleGoToPay = (shopId) => {
-    router.push({ path: `/orderConfirmation/${shopId}` })
-  }
-  return { handleGoToPay }
-}
-
-
+    router.push({ path: `/orderConfirmation/${shopId}` });
+  };
+  return { handleGoToPay };
+};
 
 export default {
   components: { FooterTapBar },
-  name: 'CartList',
-  setup () {
-    const { cartListWithProducts } = useCartEffect()
-    const { handleGoToPay } = useGoToPayEffect()
-    return { cartListWithProducts, handleGoToPay }
-  }
-}
+  name: "CartList",
+  setup() {
+    const { cartListWithProducts } = useCartEffect();
+    const { handleGoToPay } = useGoToPayEffect();
+    return { cartListWithProducts, handleGoToPay };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -121,10 +123,18 @@ export default {
   text-align: center;
 }
 .empty {
-  line-height: 44rem;
-  color: $light-fontColor;
-  font-size: 16rem;
-  text-align: center;
+  &-icon {
+    margin-top: 30rem;
+    text-align: center;
+    font-size: 100rem;
+    color: $search-fontColor;
+  }
+  &-text {
+    line-height: 44rem;
+    color: $light-fontColor;
+    font-size: 16rem;
+    text-align: center;
+  }
 }
 .shops {
   overflow-y: scroll;

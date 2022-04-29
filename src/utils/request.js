@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const instance = axios.create({
     baseURL: "https://www.fastmock.site/mock/ae8e9031947a302fed5f92425995aa19/jd",
-    // baseURL: "http://rap2.weiresearch.com/delos/app/mock/96",
+    // baseURL: 'https://www.fastmock.site/mock/e61936b3860908fbfa661852a31ba06f/jingdong',
     timeout: 10000
 })
 

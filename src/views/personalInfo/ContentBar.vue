@@ -14,7 +14,7 @@
                             :style="{ color: i.color }"
                         ></div>
                         <div class="content-bar-title">{{ i.title }}</div>
-                        <span class="content-bar-back iconfont">&#xe665;</span>
+                        <span class="content-bar-back iconfont">&#xe646;</span>
                         <!-- 收货地址跳转 -->
                         <template v-if="index == 1">
                             <div
@@ -38,9 +38,9 @@ export default {
     setup () {
         const router = useRouter()
         const barList = reactive([
-            { icon: "&#xe68a;", title: "我的钱包", color: "#ED4A47" },
-            { icon: "&#xe636;", title: "收货地址", color: "#32C5FF" },
-            { icon: "&#xe60a;", title: "客服与帮助", color: "#9013FE " },
+            { icon: "&#xe665;", title: "我的钱包", color: "#ED4A47" },
+            { icon: "&#xe620;", title: "收货地址", color: "#32C5FF" },
+            { icon: "&#xec2e;", title: "客服与帮助", color: "#9013FE " },
         ])
         //处理退出登录
         const handleSignOut = () => {
@@ -84,7 +84,8 @@ export default {
         }
         &-icon {
             margin-right: 12px;
-            font-size: 22px;
+            transform: translateY(-20%);
+            font-size: 25px;
         }
         &-title {
             font-size: 14px;

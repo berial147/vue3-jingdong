@@ -22,6 +22,7 @@
       </div>
       <div class="inventory-weight iconfont" @click="handleShowAllProduct">
         共计{{ calculations.count }}件/{{ calculations.count * 0.25 }}kg
+        <!-- 收起/展开图标 -->
         <!-- <span
           class="inventory-weight-icon iconfont"
           v-html="showAllProduct ? '&#xe919;' : '&#xe604;'"
@@ -66,13 +67,14 @@ const useShowProductListEffect = (showAllProduct, productList) => {
   });
 
   // 收起/展开
-  const handleShowAllProduct = () => {
-    showAllProduct.value = !showAllProduct.value;
+  // const handleShowAllProduct = () => {
+  //   showAllProduct.value = !showAllProduct.value;
 
-    // 如果showAllProduct是true，则收起列表
-  };
+  //   // 如果showAllProduct是true，则收起列表
+  // };
 
-  return { showPruductList, handleShowAllProduct };
+  // return { showPruductList, handleShowAllProduct };
+  return { showPruductList };
 };
 export default {
   name: "ProductList",

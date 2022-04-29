@@ -33,13 +33,12 @@ const getLocalAddressList = () => {
     }
 }
 
-
 export default createStore({
     state: {
         //购物车数据结构 cartList: {shopId :{shopName:"",addressId:"",productList:{}}}
-        //第一层是商店Id：shopId  第二层是商店名和地址及其内容 {shopName:"",productList:{}}
+        //第一层是商店Id：shopId  第二层是商店名和地址及其内容 {shopName:"",addressId:"",productList:{}}
         cartList: getLocalCartList(),
-        addressList: getLocalAddressList()
+        addressList: getLocalAddressList(),
     },
     getters: {
     },
@@ -118,7 +117,6 @@ export default createStore({
                 setLocalStorageAddressList(state)
             } else {
                 state.addressList[addressId] = addressInfo
-                console.log(addressInfo)
                 if (addressInfo.defaultAddress == true) {
                     state.addressList.forEach((item, index) => {
                         if (index != addressId) {
@@ -126,9 +124,14 @@ export default createStore({
                         }
                     });
                 }
-                console.log(state.addressList)
                 setLocalStorageAddressList(state)
             }
+        },
+        // 收获地址删除
+        handleDeleteAddress(state, payload) {
+            const { addressInfo, addressId } = payload
+            state.addressList.splice(addressId, 1)
+            setLocalStorageAddressList(state)
         }
     },
     actions: {

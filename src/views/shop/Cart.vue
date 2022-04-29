@@ -6,7 +6,7 @@
         <div class="product-header-checked">
           <span
             class="product-header-icon iconfont"
-            v-html="calculations.isCheckedAll ? '&#xe77b;' : '&#xe670;'"
+            v-html="calculations.isCheckedAll ? '&#xe70f;' : '&#xe667;'"
             @click="
               changeCartProductsChecked(shopId, calculations.isCheckedAll)
             "
@@ -22,7 +22,7 @@
         <div class="product-item" v-if="item.count">
           <div
             class="product-item-checked iconfont"
-            v-html="item.checked ? '&#xe77b;' : '&#xe670;'"
+            v-html="item.checked ? '&#xe70f;' : '&#xe667;'"
             @click="changeCartItemChecked(shopId, item._id)"
           ></div>
           <img class="product-item-img" :src="item.imgUrl" />
@@ -42,7 +42,7 @@
               class="product-count-mius iconfont"
               @click="changeCartItemInfo(shopId, item._id, item, -1)"
             >
-              &#xe60b;
+              &#xe608;
             </span>
             <span class="product-count-number">
               {{ item.count }}
@@ -51,7 +51,7 @@
               class="product-count-plus iconfont"
               @click="changeCartItemInfo(shopId, item._id, item, 1)"
             >
-              &#xe61e;
+              &#xe6a4;
             </span>
           </div>
         </div>
@@ -60,7 +60,7 @@
 
     <div class="check">
       <div class="check-cart" @click="showShopCart()">
-        <span class="check-cart-icon iconfont">&#xe605;</span>
+        <span class="check-cart-icon iconfont">&#xf4b3;</span>
         <div class="check-cart-count" v-if="calculations.count">
           {{ calculations.count }}
         </div>
@@ -190,7 +190,7 @@ export default {
     margin: 0 24rem;
     &-icon {
       color: $btn-bgColor;
-      font-size: 20rem;
+      font-size: 30rem;
     }
     &-count {
       position: absolute;

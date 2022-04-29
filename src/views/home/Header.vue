@@ -1,13 +1,13 @@
 <template>
     <div class="herder">
         <div class="address">
-            <span class="address-icon iconfont">&#xe636;</span>
+            <span class="address-icon iconfont">&#xe601;</span>
             福州理工学院A10#212
-            <div class="news iconfont">&#xe63d;</div>
+            <div class="news iconfont">&#xe6bb;</div>
         </div>
         <div class="searchbar">
             <div class="searchbar-icon">
-                <span class="iconfont">&#xe60c;</span>
+                <span class="iconfont">&#xe600;</span>
             </div>
             <input type="search" placeholder="山姆会员商店优惠商品" />
         </div>
@@ -49,7 +49,7 @@ export default {
     margin-top: 16rem;
     border-radius: 16rem;
     height: 32rem;
-    background: rgba($color: #272727, $alpha: 0.1);
+    background: rgba($color: #b7b7b7, $alpha: 0.1);
     color: #b7b7b7;
     overflow: hidden;
     input {
@@ -59,7 +59,7 @@ export default {
         line-height: 16rem;
         border: 0rem;
         outline: none;
-        background: rgba($color: #272727, $alpha: 0.05);
+        background: rgba($color: #b7b7b7, $alpha: 0.05);
     }
     &-icon {
         line-height: 32rem;

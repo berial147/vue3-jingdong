@@ -1,14 +1,14 @@
 <template>
     <div class="user">
         <div class="user-bg"></div>
-        <span class="user-edit iconfont">&#xea85;</span>
+        <span class="user-edit iconfont">&#xe66f;</span>
         <div class="user-info">
             <img class="user-info-img" src="../../assets/userImg.jpg" alt="" />
             <div class="user-info-name">
                 <!-- {{ userInfo.userName }} -->
                 苏格拉底
                 <div class="user-grade">
-                    <div class="user-grade-icon iconfont">&#xe619;</div>
+                    <div class="user-grade-icon iconfont">&#xe63e;</div>
                     <span class="user-grade-number">16</span>
                 </div>
             </div>

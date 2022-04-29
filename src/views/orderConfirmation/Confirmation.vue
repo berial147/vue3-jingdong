@@ -71,8 +71,12 @@ const useMakeOrderEffect = (shopId, shopName, productList, address) => {
         isCanceled,
         products,
       });
-      if (result?.errno == 0) {
+      const isCanceledString = JSON.stringify(isCanceled);
+      localStorage.setItem("isCanceled", isCanceledString);
+      if (!isCanceled && result.errno == 0) {
         store.commit("clearCartProducts", { shopId });
+        router.push({ name: "OrderList" });
+      } else {
         router.push({ name: "OrderList" });
       }
     } catch (e) {
@@ -128,7 +132,7 @@ export default {
   justify-content: space-between;
   line-height: 49rem;
   font-size: 14rem;
-  background: #fff;
+  background: $bgColor;
   box-shadow: 0 -1rem 1rem 0 $content-bgColor;
   &-pay {
     margin-left: 24rem;
@@ -143,8 +147,8 @@ export default {
   &-confirmation {
     width: 98rem;
     text-align: center;
-    color: #fff;
-    background-color: #4fb0f9;
+    color: $bgColor;
+    background-color: $backgroundColor;
   }
 }
 .popups {
@@ -156,7 +160,7 @@ export default {
   height: 156rem;
   text-align: center;
   border-radius: 4rem;
-  background: #fff;
+  background: $bgColor;
   z-index: 10;
   &-msg {
     &-close {
@@ -185,7 +189,7 @@ export default {
     &-msagess {
       margin-top: 8rem;
       font-size: 14rem;
-      color: #666;
+      color: $medium-fontColor;
     }
     &-btn {
       display: flex;
@@ -201,7 +205,7 @@ export default {
       height: 32rem;
       line-height: 32rem;
       border-radius: 16rem;
-      border: 1rem solid #4fb0f9;
+      border: 1rem solid $backgroundColor;
       box-sizing: content-box;
     }
     &-cancel {
@@ -209,7 +213,7 @@ export default {
     }
     &-confirm {
       color: $bgColor;
-      background: #4fb0f9;
+      background: $backgroundColor;
     }
   }
 }
